@@ -16,7 +16,7 @@ public class Employee {
 	private boolean isAdmin;
 	
 	public Employee() {
-		this.isAdminNum = 3;//signifies a bad login
+		
 	}
 	
 	public Employee(boolean valid) {
@@ -51,7 +51,7 @@ public class Employee {
 	
 	
 	
-	public Employee(String fname, String lname, String pass, String email, String hometown) {
+	public Employee(String fname, String lname, String pass, String email, String hometown, int phone) {
 		super();
 		this.fname = fname;
 		this.lname = lname;
@@ -59,7 +59,7 @@ public class Employee {
 		this.email = email;
 		this.hometown = hometown;
 		this.isAdminNum = 0;
-		this.phone = 12345;
+		this.phone = phone;
 	}
 
 	public int getEmp_id() {

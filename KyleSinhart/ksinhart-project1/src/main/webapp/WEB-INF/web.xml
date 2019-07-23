@@ -64,9 +64,27 @@
     <servlet-name>InformationChangeServlet</servlet-name>
     <url-pattern>/app/info</url-pattern>
   </servlet-mapping>
-  
   <session-config>
-  	<!-- 5 minute session timeout -->
-  	<session-timeout>5</session-timeout>
+    <session-timeout>5</session-timeout>
   </session-config>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeReimbursementSubmit</display-name>
+    <servlet-name>EmployeeReimbursementSubmit</servlet-name>
+    <servlet-class>com.revature.project1.servlets.EmployeeReimbursementSubmit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeReimbursementSubmit</servlet-name>
+    <url-pattern>/app/resubmit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReimbursementUpdateServlet</display-name>
+    <servlet-name>ReimbursementUpdateServlet</servlet-name>
+    <servlet-class>com.revature.project1.servlets.ReimbursementUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReimbursementUpdateServlet</servlet-name>
+    <url-pattern>/app/reupdate</url-pattern>
+  </servlet-mapping>
 </web-app>

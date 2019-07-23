@@ -144,7 +144,6 @@ public class ReimbursementDAOImpl implements ReimbursementDAO{
 		return null;
 	}
 	
-	
 	@Override
 	public void deleteReimbursement(Reimbursement re) {
 		try(Connection conn=ConnectionFactory.getConnection()){
@@ -153,10 +152,8 @@ public class ReimbursementDAOImpl implements ReimbursementDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
 	}
-
+	
 	@Override
 	public Reimbursement updateReimbursement(Reimbursement re, Employee m, int status) {
 		try(Connection conn=ConnectionFactory.getConnection()){

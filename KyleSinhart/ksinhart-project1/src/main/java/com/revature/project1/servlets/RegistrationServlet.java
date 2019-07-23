@@ -22,7 +22,7 @@ public class RegistrationServlet extends HttpServlet {
 		EmployeeDAOImpl edi = new EmployeeDAOImpl();
 		System.out.println(request.getParameter("fname"));
 		//Employee e = new Employee(request.getParameter("fname"),request.getParameter("lname"),request.getParameter("password"),request.getParameter("emp_email"),0,request.getParameter("hometown"),Integer.parseInt(request.getParameter("phone")));
-		Employee e = new Employee(request.getParameter("fname"),request.getParameter("lname"),request.getParameter("password"),request.getParameter("emp_email"),request.getParameter("hometown"));
+		Employee e = new Employee(request.getParameter("fname"),request.getParameter("lname"),request.getParameter("password"),request.getParameter("emp_email"),request.getParameter("hometown"),Integer.parseInt(request.getParameter("phone")));
 		e = edi.createEmployee(e);
 		response.sendRedirect("/project1/login.html");
 	}

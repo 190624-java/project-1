@@ -1,8 +1,11 @@
 package com.revature.project1.service;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.project1.beans.*;
+import com.revature.project1.dbDAOimpl.*;
 
 public class LocalDataLists {
 	
@@ -30,5 +33,19 @@ public class LocalDataLists {
 		recList = recListloc;
 	}
 	
+	public static void updateLists() {
+		try {
+			
+			Connection conn=ConnectionFactory.getConnection();
+			/*
+			new EmployeeDAOImpl().getEmployeeList();
+			new ReimbursementDAOImpl().ge
+			new ReceiptDAOImpl()
+			*/
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

@@ -6,7 +6,7 @@
 	<artifactId>project1</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	<name>project1</name>
+	<name>ksinhart-project1</name>
 
 	<build>
 		<pluginManagement>

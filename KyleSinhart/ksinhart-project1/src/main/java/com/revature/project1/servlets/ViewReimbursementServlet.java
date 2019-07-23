@@ -20,18 +20,50 @@ public class ViewReimbursementServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//this finds all unprocessed remimbursements
+		int check = Integer.parseInt(request.getParameter("re_status"));
 		ReimbursementDAOImpl rdi= new ReimbursementDAOImpl();
-		List<Reimbursement> reList= rdi.getReimbursementList(0);
-		ObjectMapper mapper = new ObjectMapper();
-		response.getWriter().print(mapper.writeValueAsString(reList));
-		//
+		
+		if(check==0) {
+			//this finds all unprocessed reimbursements
+			List<Reimbursement> reList= rdi.getReimbursementList(0);
+			ObjectMapper mapper = new ObjectMapper();
+			response.getWriter().print(mapper.writeValueAsString(reList));
+			//
+		}
+		else if(check==1) {
+			//this finds all approved
+			List<Reimbursement> reList= rdi.getReimbursementList(1);
+			ObjectMapper mapper = new ObjectMapper();
+			response.getWriter().print(mapper.writeValueAsString(reList));
+			//
+		}
+		else if(check==2) {
+			//this finds all rejected
+			List<Reimbursement> reList= rdi.getReimbursementList(2);
+			ObjectMapper mapper = new ObjectMapper();
+			response.getWriter().print(mapper.writeValueAsString(reList));
+			//
+		}
+		else {
+			//this is the fail
+		}
 		
 		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//put the employee specific reimbursement list here
+		EmployeeDAOImpl edi = new EmployeeDAOImpl();
+		Employee e = edi.getEmployee(Integer.parseInt(request.getParameter("emp_id")));
+		ReimbursementDAOImpl rdi  = new ReimbursementDAOImpl();
+		List<Reimbursement> reList = rdi.getReimbursementList(e);
+		ObjectMapper mapper = new ObjectMapper();
+		response.getWriter().print(mapper.writeValueAsString(reList));
+		 
+		
+		
+		
 		
 	}
 
