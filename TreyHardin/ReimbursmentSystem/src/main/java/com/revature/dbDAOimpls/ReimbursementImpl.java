@@ -11,14 +11,27 @@ import com.revature.beans.Reimbursement;
 import com.revature.doa.Reimbursementdao;
 
 public class ReimbursementImpl implements Reimbursementdao {
+	
+	private Connection con;
+	
+	public ReimbursementImpl() {
+		try {
+			con = dbConnectionHandler.getConnection();
+			System.out.println("we have a connection");
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("we have a problem");
+		}
+	}
 
 	@Override
-	public Reimbursement createReimbursement(double amount, int userId, Connection con) {
+	public Reimbursement createReimbursement(double amount, int userId) {
 		try {
 			 //2. Create a statement.
-				String sql = "INSERT INTO reimbursements(employ_id, reimbursment)"
+				String sql = "INSERT INTO REIMBURSEMENTS (employ_id, reimbursement)"
 						+"VALUES (?, ?)";
-				String[] primaryKeyValues = {"reimbursment_id"};
+				String[] primaryKeyValues = {"reimbursements_id"};
 				PreparedStatement stmt = con.prepareStatement(sql, primaryKeyValues);
 				stmt.setInt(1, userId);
 				stmt.setDouble(2, amount);
@@ -32,7 +45,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 				while(keys.next()) 
 				{
 					int reimId = keys.getInt(1);
-					reim.setReimbursmentId(reimId);
+					reim.setreimbursementId(reimId);
 				}
 				return reim;
 		} 
@@ -44,9 +57,9 @@ public class ReimbursementImpl implements Reimbursementdao {
 	}
 
 	@Override
-	public Reimbursement getReimbursement(int id, Connection con) {
+	public Reimbursement getReimbursement(int id) {
 		try {
-			String sql = "Select * from reimbursements Where reimbursment_id = ?";
+			String sql = "Select * from REIMBURSEMENTS Where reimbursement_id = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1, id);
 			
@@ -56,7 +69,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 			while(results.next()) {
 				int employId = results.getInt("employ_id");
 				int managerId = results.getInt("manager_id");
-				double amount = results.getDouble("reimbursment");
+				double amount = results.getDouble("reimbursement");
 				boolean approved = results.getInt("approved")==1;
 				reim = new Reimbursement(id, employId, managerId, amount, approved);
 			}
@@ -70,7 +83,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 	}
 
 	@Override
-	public List<Reimbursement> getReimbursement(boolean status, Connection con) {
+	public List<Reimbursement> getReimbursement(boolean status) {
 		
 		int approve = 0;
 		
@@ -79,7 +92,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 		}
 		
 		try {
-			String sql = "Select * From reimbursements Where approved = " + approve;
+			String sql = "Select * From REIMBURSEMENTS Where approved = " + approve;
 			PreparedStatement stmt = con.prepareStatement(sql);
 			
 			ResultSet results = stmt.executeQuery();
@@ -89,7 +102,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 				int id = results.getInt("reimbursement_id");
 				int employId = results.getInt("employ_id");
 				int managerId = results.getInt("manager_id");
-				double amount = results.getDouble("reimbursment");
+				double amount = results.getDouble("reimbursement");
 				boolean approved = results.getInt("approved")==1;
 				reim.add(new Reimbursement(id, employId, managerId, amount, approved));
 			}
@@ -103,7 +116,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 	}
 
 	@Override
-	public Reimbursement updateReimbursement(Reimbursement reim, Connection con) {
+	public Reimbursement updateReimbursement(Reimbursement reim) {
 		
 		int approved = 0;
 		if(reim.isApproved()) {
@@ -116,7 +129,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 			
 			stmt.setInt(1, reim.getManagerId());
 			stmt.setInt(2, approved);
-			stmt.setInt(3, reim.getReimbursmentId());
+			stmt.setInt(3, reim.getreimbursementId());
 			
 			stmt.executeUpdate();
 			

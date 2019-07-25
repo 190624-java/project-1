@@ -2,26 +2,26 @@ package com.revature.beans;
 
 public class Reimbursement {
 	
-	private int reimbursmentId;
+	private int reimbursementId;
 	private int employeeId;
 	private int managerId;
-	private double reimbursmentAmount;
+	private double reimbursementAmount;
 	private boolean approved;
 	
-	public Reimbursement(int reimbursmentId, int employeeId, int managerId, double reimbursmentAmount,
+	public Reimbursement(int reimbursementId, int employeeId, int managerId, double reimbursementAmount,
 			boolean approved) {
 		super();
-		this.reimbursmentId = reimbursmentId;
+		this.reimbursementId = reimbursementId;
 		this.employeeId = employeeId;
 		this.managerId = managerId;
-		this.reimbursmentAmount = reimbursmentAmount;
+		this.reimbursementAmount = reimbursementAmount;
 		this.approved = approved;
 	}
 
-	public Reimbursement(int employeeId, double reimbursmentAmount) {
+	public Reimbursement(int employeeId, double reimbursementAmount) {
 		super();
 		this.employeeId = employeeId;
-		this.reimbursmentAmount = reimbursmentAmount;
+		this.reimbursementAmount = reimbursementAmount;
 	}
 
 	public int getManagerId() {
@@ -32,12 +32,12 @@ public class Reimbursement {
 		this.managerId = managerId;
 	}
 
-	public double getReimbursmentAmount() {
-		return reimbursmentAmount;
+	public double getreimbursementAmount() {
+		return reimbursementAmount;
 	}
 
-	public void setReimbursmentAmount(double reimbursmentAmount) {
-		this.reimbursmentAmount = reimbursmentAmount;
+	public void setreimbursementAmount(double reimbursementAmount) {
+		this.reimbursementAmount = reimbursementAmount;
 	}
 
 	public boolean isApproved() {
@@ -48,12 +48,12 @@ public class Reimbursement {
 		this.approved = approved;
 	}
 
-	public int getReimbursmentId() {
-		return reimbursmentId;
+	public int getreimbursementId() {
+		return reimbursementId;
 	}
 	
-	public void setReimbursmentId(int reimbursmentId) {
-		this.reimbursmentId = reimbursmentId;
+	public void setreimbursementId(int reimbursementId) {
+		this.reimbursementId = reimbursementId;
 	}
 
 	public int getEmployeeId() {

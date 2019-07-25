@@ -14,7 +14,7 @@ public class dbConnectionHandler {
 	
 	public static Connection getConnection() throws SQLException {
 		try {
-			System.out.println("Found Driver");
+			//System.out.println("Found Driver");
             Class.forName("oracle.jdbc.OracleDriver");
         } catch (ClassNotFoundException e) {
             // TODO Auto-generated catch block
