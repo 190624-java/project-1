@@ -1,3 +1,5 @@
+var baseurl = 'http://localhost:8080/project1/';
+
 document.getElementById("cardRow").onclick=()=>{
     console.log("Working?");
     let xhr = new XMLHttpRequest();
@@ -7,9 +9,9 @@ document.getElementById("cardRow").onclick=()=>{
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                let info = JSON.parse(xhr.response);
+                let e = JSON.parse(xhr.response);
 
-                writeHomeAndPhone(info);
+                writeHomeAndPhone(e);
                 //for (let re in reimbursement) {
                //     addReimbursementToTable(reimbursement[re]);
                // }
@@ -22,6 +24,10 @@ document.getElementById("cardRow").onclick=()=>{
     xhr.send();
 };
 
-function writeHomeAndPhone(arr){
-    
+function writeHomeAndPhone(e){
+    //write to hometown card
+    document.getElementById('hometown').innerText = e.hometown;
+    //write to phone card
+    document.getElementById('phone').innerText = e.phone;
+
 }

@@ -18,8 +18,7 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		
 		String email = request.getParameter("emp_email");
 		String password = request.getParameter("password");
@@ -43,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("valid user");
 				session.setAttribute("email", email);
 				session.setAttribute("emp_id", e.getEmp_id());
-				response.sendRedirect("/project1/home.html");
+				response.sendRedirect("/project1/app/home.html");
 			}
 		}
 		else if(e.getIsAdminNum()==1) {
@@ -51,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("valid user");
 				session.setAttribute("email", email);
 				session.setAttribute("emp_id", e.getEmp_id());
-				response.sendRedirect("/project1/managerHome.html");
+				response.sendRedirect("/project1/app/managerHome.html");
 			}
 		}
 		else {

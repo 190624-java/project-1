@@ -52,7 +52,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RegistrationServlet</servlet-name>
-    <url-pattern>/app/registration</url-pattern>
+    <url-pattern>/registration</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -87,7 +87,6 @@
     <servlet-name>ReimbursementUpdateServlet</servlet-name>
     <url-pattern>/app/reupdate</url-pattern>
   </servlet-mapping>
-  
   <filter>
     <display-name>AuthenticationFilter</display-name>
     <filter-name>AuthenticationFilter</filter-name>
@@ -97,5 +96,24 @@
     <filter-name>AuthenticationFilter</filter-name>
     <url-pattern>/app/*</url-pattern>
   </filter-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>ReceiptSubmit</display-name>
+    <servlet-name>ReceiptSubmit</servlet-name>
+    <servlet-class>com.revature.project1.servlets.ReceiptSubmit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReceiptSubmit</servlet-name>
+    <url-pattern>/app/receipt</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.revature.project1.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/app/logout</url-pattern>
+  </servlet-mapping>
 </web-app>

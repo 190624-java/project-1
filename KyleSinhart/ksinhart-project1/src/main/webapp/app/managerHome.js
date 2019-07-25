@@ -52,5 +52,5 @@ function addEmployeeToTable(e){
 document.getElementById('goEmpRe').addEventListener('click',()=>{
     //console.log("Clicked");
     localStorage.setItem('emp_id',document.getElementById("emp_id").value);
-    window.location.href = "http://localhost:8080/project1/empReimbursement.html";
+    window.location.href = "http://localhost:8080/project1/app/empReimbursement.html";
 });

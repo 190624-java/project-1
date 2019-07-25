@@ -73,5 +73,5 @@ function addReimbursementToTable(re) {
 document.getElementById('goRec').addEventListener('click',()=>{
     //console.log("Clicked");
     localStorage.setItem('re_id',document.getElementById("re_id").value);
-    window.location.href = "http://localhost:8080/project1/viewReceipts.html";
+    window.location.href = "http://localhost:8080/project1/app/viewReceipts.html";
 });

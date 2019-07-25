@@ -66,7 +66,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 				int phone= rset.getInt("phone");
 				
 				e=new Employee(emp_id,fname,lname,pass,emailQ,isAdminNum,hometown,phone);
-				System.out.println(e.toString());
+				//System.out.println(e.toString());
 			}
 			if(e==null) {
 				return new Employee(false);

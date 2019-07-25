@@ -8,6 +8,7 @@
 	<packaging>war</packaging>
 	<name>ksinhart-project1</name>
 
+	
 	<build>
 		<pluginManagement>
 			<plugins>

@@ -27,7 +27,9 @@ public class Reimbursement {
 	public Reimbursement(int re_id) {
 		this.re_id=re_id;
 	}
-	
+	public Reimbursement(String re_id) {
+		this.re_id=Integer.parseInt(re_id);
+	}
 	
 	public Reimbursement(int re_id, int emp_id, int re_status, double amount, Date date_of, String description,
 			int manager_id) {

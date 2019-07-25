@@ -34,7 +34,7 @@ public class InformationChangeServlet extends HttpServlet {
 		Employee e = edi.getEmployee(id);//hard coded value so that we change john smith
 		
 		e=edi.updateEmployee(hometownNew, phoneNew, e);
-		response.sendRedirect("/project1/account.html");
+		response.sendRedirect("/project1/app/account.html");
 	}
 
 }

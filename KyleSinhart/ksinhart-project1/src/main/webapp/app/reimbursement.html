@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Submit Reimbursement Form</title>
+  <title>Reimbursement</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,6 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type="text/javascript" src="reimbursement.js"></script>
 </head>
 
 <body>
@@ -21,23 +22,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/project1/app/home.html">Home </a>
+        </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Reimbursements<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/project1/reimbursement.html">Reimbursements</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/project1/account.html">Account</a>
+          <a class="nav-link" href="/project1/app/account.html">Account</a>
         </li>
       </ul>
     </div>
   </nav>
-<div class="container">
-  <div class="row">
-    
+  <div class="container">
+    <div class="row">
+      <button id="submitRe" class="btn btn-success">Submit a Reimbursements</button>
+    </div>
+    <div class="row">
+      <button id="reimbursementForSessionUser" class="btn btn-success">View Your Reimbursements</button>
+    </div>
   </div>
-</div>
 
   <div class="navbar fixed-bottom">
     <button class="btn nav-link lead" id="doLogout"><b>Logout</b></button>
