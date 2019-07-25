@@ -25,6 +25,10 @@ public class Employee {
 		}
 	}
 	
+	public Employee(String emp_id) {
+		this.emp_id=Integer.parseInt(emp_id);
+	}
+	
 	public Employee(int emp_id, String fname, String lname, String pass, String email, int isAdminNum, String hometown,
 			int phone) {
 		super();

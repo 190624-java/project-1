@@ -10,6 +10,11 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    #cardRow > div {
+      margin: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,7 +38,23 @@
       </ul>
     </div>
   </nav>
-
+<div id="cardContainer" class="container text-center">
+  <div id="cardRow" class="row text-center justify-content-md-center">
+    <div class="card offset-4">
+        <div class="card-body">
+          <h4 class="card-title">Hometown</h4>
+          <p id="hometown" class="card-text"></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Phone</h4>
+          <p id="phone" class="card-text"></p>
+        </div>
+    </div>
+  </div>
+  
+</div>
   <div class="container text-center">
     <form method="POST" action="/project1/app/info">
       <div class="row offset-4 text-center">

@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.project1.beans.Employee;
 import com.revature.project1.dbDAOimpl.EmployeeDAOImpl;
@@ -21,6 +22,8 @@ public class EmployeeListServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
+		
 		EmployeeDAOImpl edi= new EmployeeDAOImpl();
 		List<Employee> empList= edi.getEmployeeList();
 		ObjectMapper mapper = new ObjectMapper();

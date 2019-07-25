@@ -1,6 +1,6 @@
 package com.revature.project1.beans;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public class Reimbursement {
@@ -15,12 +15,12 @@ public class Reimbursement {
 	private boolean statusOf;
 	
 	
-	public Reimbursement(int emp_id, double amount, Date date_of, String description) {
+	public Reimbursement(int emp_id, double amount,Date date, String description) {
 		//super();
 		this.emp_id = emp_id;
 		this.re_status=0;
 		this.amount = amount;
-		this.date_of = date_of;
+		this.date_of = date;
 		this.description = description;
 	}
 	

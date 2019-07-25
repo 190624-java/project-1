@@ -1,7 +1,7 @@
 package com.revature.project1.dbDAOimpl;
 
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +29,7 @@ public class ReimbursementDAOImpl implements ReimbursementDAO{
 			prep.setInt(1,re.getEmp_id());
 			prep.setInt(2, re.getRe_status());
 			prep.setDouble(3, re.getAmount());
-			prep.setDate(4, re.getDate_of());
+			prep.setDate(4, (java.sql.Date) re.getDate_of());
 			prep.setString(5, re.getDescription());
 			
 			prep.executeUpdate();

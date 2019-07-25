@@ -1,10 +1,7 @@
 var baseurl = 'http://localhost:8080/project1/';
-{
-    let emp_id = localStorage.getItem("emp_id");
-    console.log(emp_id);
-}
 
-document.getElementById("reimbursement-table").onload = () => {
+
+document.getElementById("reimbursement-table").onclick = () => {
     //get var from localstorage
     let emp_id = localStorage.getItem("emp_id");
     localStorage.clear();
@@ -28,7 +25,7 @@ document.getElementById("reimbursement-table").onload = () => {
         }
     };
     //xhr.responseText(`emp_id=${emp_id}`);
-    xhr.send(`emp_id=${emp_id}`);
+    xhr.send(JSON.stringify(emp_id));
 };
 
 function addReimbursementToTable(re) {
@@ -57,7 +54,7 @@ function addReimbursementToTable(re) {
     else if (re.re_status === 2) {
         statusCol.innerText = 'Denied';
     }
-    amountCol.innerText = re.amount;
+    amountCol.innerText = `$${re.amount}` ;
     dateCol.innerText = re.date_of;
     descriptionCol.innerText = re.description;
     managerCol.innerText = re.manager_id;
@@ -73,3 +70,8 @@ function addReimbursementToTable(re) {
     document.getElementById('re-table-body').appendChild(newRow);
 };
 
+document.getElementById('goRec').addEventListener('click',()=>{
+    //console.log("Clicked");
+    localStorage.setItem('re_id',document.getElementById("re_id").value);
+    window.location.href = "http://localhost:8080/project1/viewReceipts.html";
+});

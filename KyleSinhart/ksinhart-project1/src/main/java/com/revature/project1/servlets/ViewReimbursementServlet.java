@@ -48,22 +48,19 @@ public class ViewReimbursementServlet extends HttpServlet {
 			//this is the fail
 		}
 		
-		
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//put the employee specific reimbursement list here
+		System.out.println("Is this hit");
 		EmployeeDAOImpl edi = new EmployeeDAOImpl();
-		Employee e = edi.getEmployee(Integer.parseInt(request.getParameter("emp_id")));
+		ObjectMapper mapper = new ObjectMapper();
+		Employee e= (Employee) mapper.readValue(request.getInputStream(), Employee.class);
+		e = edi.getEmployee(e.getEmp_id()); 
 		ReimbursementDAOImpl rdi  = new ReimbursementDAOImpl();
 		List<Reimbursement> reList = rdi.getReimbursementList(e);
-		ObjectMapper mapper = new ObjectMapper();
 		response.getWriter().print(mapper.writeValueAsString(reList));
-		 
-		
-		
-		
 		
 	}
 
