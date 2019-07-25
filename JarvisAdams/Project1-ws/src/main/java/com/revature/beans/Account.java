@@ -6,6 +6,8 @@ public class Account {
 	private String password;
 	private String name;
 	private String email;
+	private int userID;
+	private int type;
 	
 	public Account() {
 		
@@ -42,6 +44,24 @@ public class Account {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+	public int getType() {
+		return this.type;
+	}
+
+	public void setType(int userType) {
+		this.type = userType;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+		
+	}
+	public int getUserID() {
+		return this.userID;
+	}
+
 	
 	
 }
