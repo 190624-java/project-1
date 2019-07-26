@@ -33,7 +33,7 @@ public class RegImpl implements RegistrarInterface {
 		try {
 			String sql = "SELECT * FROM employees WHERE access_level = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, 2);
+			stmt.setInt(1, 1);
 			ResultSet results = stmt.executeQuery();
 			while(results.next()) 
 			{
@@ -42,12 +42,16 @@ public class RegImpl implements RegistrarInterface {
 				String email = results.getString("emp_email");
 				String name = results.getString("emp_name");
 				int id = results.getInt("emp_id");
-				employees.add(new Employee(user, pass, email, name, id, 1));
+				Employee employee = new Employee(user, pass, email, name, id, 1);
+//				System.out.println(employee.getName());
+//				System.out.println(employee.getEmail());
+//				System.out.println(employee.getId());
+				employees.add(employee);
 			}
 			
 			return employees;
 		} catch (SQLException e) {
-			
+			e.printStackTrace();
 			return employees;
 		}
 
@@ -58,21 +62,18 @@ public class RegImpl implements RegistrarInterface {
 		Employee retemp = null;
 		try {
 			System.out.println(username);
-			String sql = "SELECT emp_password, emp_email, emp_name, emp_id FROM employees WHERE emp_username = ?";
+			String sql = "SELECT emp_password, emp_email, emp_name, emp_id, access_level FROM employees WHERE emp_username = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, username);
 			ResultSet results = stmt.executeQuery();
-			while(results.next()) 
+			while(results.next())
 			{
 				String pass = results.getString("emp_password");
-				System.out.println("password is " + pass);
 				String email = results.getString("emp_email");
-				System.out.println("email is " + email);
 				String name = results.getString("emp_name");
-				System.out.println("name is "+name);
 				int id = results.getInt("emp_id");
-				System.out.println(id);
-				retemp = new Employee(username, pass, email, name, id, 1);
+				int accessLevel = results.getInt("access_level");
+				retemp = new Employee(username, pass, email, name, id, accessLevel);
 			}
 			
 			return retemp;
@@ -87,7 +88,7 @@ public class RegImpl implements RegistrarInterface {
 	{
 		List<Employee> managers = new ArrayList<>();
 		try {
-			String sql = "SELECT FROM employees WHERE access_level = ?";
+			String sql = "SELECT * FROM employees WHERE access_level = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, 2);
 			ResultSet results = stmt.executeQuery();
@@ -98,7 +99,8 @@ public class RegImpl implements RegistrarInterface {
 				String email = results.getString("emp_email");
 				String name = results.getString("emp_name");
 				int id = results.getInt("emp_id");
-				managers.add(new Employee(user, pass, email, name, id, 2));
+				Employee manager = new Employee(user, pass, email, name, id, 2);
+				managers.add(manager);
 			}
 			return managers;
 		} catch (SQLException e) {

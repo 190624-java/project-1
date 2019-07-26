@@ -9,6 +9,8 @@ public class Employee
 	private int id;
 	private int accessLevel;
 	
+	public Employee() {}
+	
 	public Employee(String username, String password, String email, String name, int id, int access) {
 		super();
 		this.username = username;

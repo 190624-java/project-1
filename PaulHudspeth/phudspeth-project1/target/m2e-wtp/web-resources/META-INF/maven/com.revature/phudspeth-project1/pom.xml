@@ -6,10 +6,11 @@
 	<artifactId>phudspeth-project1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
+	<!--the first part of your uri is based on name of the the war-file created with your project.-->
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

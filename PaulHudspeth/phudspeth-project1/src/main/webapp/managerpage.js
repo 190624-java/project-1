@@ -1,12 +1,13 @@
 var URL = 'http://localhost:8080/jcindustries/'
 
-document.getElementById("loginbutton").onclick = () => {
+document.getElementById("shoe").onclick = () => {
     console.log('I have been clicked');
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", URL + "app/login");
+    xhr.open("POST", URL + "app/addemp");
     let employee = {};
     employee.username = document.getElementById('empusername').value;
     employee.password = document.getElementById('emppassword').value;
+    employee.password = document.getElementById('empname').value;
     xhr.onreadystatechange = () => {
         if(xhr.readyState === 4)
         {

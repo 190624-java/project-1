@@ -9,6 +9,7 @@
     <display-name>DispatchServlet</display-name>
     <servlet-name>DispatchServlet</servlet-name>
     <servlet-class>servlet.DispatchServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>DispatchServlet</servlet-name>

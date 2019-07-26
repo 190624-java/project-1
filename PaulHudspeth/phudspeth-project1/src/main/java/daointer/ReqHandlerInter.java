@@ -13,4 +13,5 @@ public interface ReqHandlerInter
 	public List<Request> getUserRequest(int userID);
 	public List<Request> getAllResolved();
 	public List<Request> getAllSubmitted();
+	public Request getRequest(int ticketNumb);
 }

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionManager 
 {
-	public static final String URL = "jdbc:oracle:thin:@project1db.cn3lqnky3avv.us-east-1.rds.amazonaws.com\n" + 
+	public static final String URL = "jdbc:oracle:thin:@project1db.cn3lqnky3avv.us-east-1.rds.amazonaws.com" + 
 			":1521:ORCL";
 	public static final String username="proj1expensereim";
 	public static final String password= "reimpass";
