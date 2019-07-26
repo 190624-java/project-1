@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet{
 			//store a session variable on that session 
 			HttpSession sess = req.getSession();
 			sess.setAttribute("loggedIn", true);
-			sess.setAttribute("userID",new Integer(account.getUserID()));
+			sess.setAttribute("userID", new Integer(account.getUserID()));
 			sess.setAttribute("username", username);
 			sess.setAttribute("name", account.getName());
 			sess.setAttribute("email", account.getEmail());

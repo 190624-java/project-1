@@ -43,10 +43,13 @@ public class RequestDAOImp implements RequestDAO {
 	@Override
 	public List<Request> getPersonalPending(int userID){
 		try (Connection conn = new ConnectionFactory().getConnection()) {
-			String sub_sql = "SELECT (reqID, reqAmount, description, status) FROM Requests WHERE userID="
-					+ userID;
-			String sql = "SELECT (reqID, reqAmount, description, status) FROM (" + sub_sql + ") WHERE status="
-					+ RequestStatus.PENDING;			
+			String sql = "SELECT reqID, reqAmount, description, status FROM Requests WHERE userID="
+					+ userID + "AND status=" + RequestStatus.PENDING;	
+			/*
+			 * SELECT (reqID, reqAmount, description, status) FROM Requests 
+			 * WHERE userID=1 AND status=10;	
+			 */
+					
 			
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);
@@ -76,12 +79,20 @@ public class RequestDAOImp implements RequestDAO {
 	@Override
 	public List<Request> getPersonalResolved(int userID) {
 		try (Connection conn = new ConnectionFactory().getConnection()) {
-			String sub_sql = "SELECT (reqID, reqAmount, description, status, resolvingManager) FROM Requests WHERE userID="
-					+ userID;
-			String sql = "SELECT (reqID, reqAmount, description, status, resolvingManager) FROM (" + sub_sql + ") WHERE status="
+//			String sub_sql = "SELECT reqID, reqAmount, description, status, resolvingManager FROM Requests WHERE userID="
+//					+ userID;
+//			String sql = "SELECT reqID, reqAmount, description, status, resolvingManager FROM (" + sub_sql + ") WHERE status="
+//					+ RequestStatus.ACCEPTED 
+//					+ "OR status="
+//					+ RequestStatus.REJECTED;
+			
+			String sql = "SELECT reqID, reqAmount, description, status, resolvingManager FROM Requests WHERE userID="
+					+ userID
+					+ "AND (status="
 					+ RequestStatus.ACCEPTED 
 					+ "OR status="
-					+ RequestStatus.REJECTED;
+					+ RequestStatus.REJECTED
+					+ ")";
 			
 			Statement st = conn.createStatement();
 			ResultSet rs = st.executeQuery(sql);

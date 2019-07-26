@@ -3,13 +3,14 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>business</display-name>
+  <display-name>J2Inc</display-name>
   
   <welcome-file-list>
     <!--  <welcome-file>index.html</welcome-file> -->
     <welcome-file>login.html</welcome-file>
   </welcome-file-list>
   
+  <!-- LOGIN PAGE -->
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.revature.servlets.LoginServlet</servlet-class>
@@ -18,5 +19,61 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/app/login</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>SessionChecker</servlet-name>
+    <servlet-class>com.revature.servlets.SessionChecker</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionChecker</servlet-name>
+    <url-pattern>/app/SessionChecker</url-pattern>
+  </servlet-mapping>
   
+
+  <!-- MANAGER PAGE -->
+  <servlet>
+    <servlet-name>ViewEmployees</servlet-name>
+    <servlet-class>com.revature.servlets.ViewEmployeesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewEmployees</servlet-name>
+    <url-pattern>/app/populateEmployeesView</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ViewResolved</servlet-name>
+    <servlet-class>com.revature.servlets.ViewResolved</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewResolved</servlet-name>
+    <url-pattern>/app/viewResolved</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ViewPending</servlet-name>
+    <servlet-class>com.revature.servlets.ViewPending</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewPending</servlet-name>
+    <url-pattern>/app/viewPending</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ViewPersonalResolved</servlet-name>
+    <servlet-class>com.revature.servlets.ViewPersonalResolved</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewPersonalResolved</servlet-name>
+    <url-pattern>/app/viewPersonalResolved</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ViewPersonalPending</servlet-name>
+    <servlet-class>com.revature.servlets.ViewPersonalPending</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewPersonalPending</servlet-name>
+    <url-pattern>/app/viewPersonalPending</url-pattern>
+  </servlet-mapping>
+
 </web-app>
