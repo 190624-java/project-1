@@ -59,7 +59,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 	@Override
 	public Reimbursement getReimbursement(int id) {
 		try {
-			String sql = "Select * from REIMBURSEMENTS Where reimbursement_id = ?";
+			String sql = "Select * from REIMBURSEMENTS Where reimbursements_id = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setInt(1, id);
 			
@@ -99,7 +99,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 			List<Reimbursement> reim = new ArrayList<>(); 
 			
 			while(results.next()) {
-				int id = results.getInt("reimbursement_id");
+				int id = results.getInt("reimbursements_id");
 				int employId = results.getInt("employ_id");
 				int managerId = results.getInt("manager_id");
 				double amount = results.getDouble("reimbursement");
@@ -124,7 +124,7 @@ public class ReimbursementImpl implements Reimbursementdao {
 		}
 		
 		try {
-			String sql = "Updatate reimbursement Set manager_id = ?, approved = ? Where reimbursement_id = ?";
+			String sql = "Update reimbursements Set manager_id = ?, approved = ? Where reimbursements_id = ?";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			
 			stmt.setInt(1, reim.getManagerId());

@@ -53,7 +53,7 @@ document.getElementById("editInfo").onclick = () =>{
 
 document.getElementById("reimbursment").onclick = () =>{
     console.log("click");
-    window.location.replace("submitRequest.html");
+    window.location.href = baseURL + "submitRequest.html";
 }
 
 function disableUpdate(){

@@ -118,7 +118,7 @@ public class EmployeeImpl implements Employeedoa {
 	@Override
 	public List<Employee> getEmployees() {
 		try {
-			String sql = "Select * From employee";
+			String sql = "Select * From employees";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			
 			ResultSet result = stmt.executeQuery();
