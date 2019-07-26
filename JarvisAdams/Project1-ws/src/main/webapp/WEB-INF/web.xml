@@ -26,7 +26,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   </servlet>
   <servlet-mapping>
     <servlet-name>SessionChecker</servlet-name>
-    <url-pattern>/app/SessionChecker</url-pattern>
+    <url-pattern>/app/sessionChecker</url-pattern>
   </servlet-mapping>
   
 
@@ -58,6 +58,8 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <url-pattern>/app/viewPending</url-pattern>
   </servlet-mapping>
 
+
+<!-- EMPLOYEE PAGE -->
   <servlet>
     <servlet-name>ViewPersonalResolved</servlet-name>
     <servlet-class>com.revature.servlets.ViewPersonalResolved</servlet-class>
@@ -65,6 +67,15 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
   <servlet-mapping>
     <servlet-name>ViewPersonalResolved</servlet-name>
     <url-pattern>/app/viewPersonalResolved</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ViewAccountInfo</servlet-name>
+    <servlet-class>com.revature.servlets.ViewAccountInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAccountInfo</servlet-name>
+    <url-pattern>/app/viewAccountInfo</url-pattern>
   </servlet-mapping>
   
   <servlet>

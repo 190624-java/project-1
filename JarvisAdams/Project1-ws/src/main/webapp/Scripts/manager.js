@@ -6,35 +6,7 @@ var pendings = null;
 //================================================================
 //  Tab Responsivity
 //================================================================
-document.getElementById("tab1").ontoggle = () => {
-
-    if (pendings == null) {
-        pendings = getPendings();
-    } //else just let the HTML display the existing view that was previously retrieved
-
-};
 document.getElementById("tab2").ontoggle = () => {
-
-    if (pendings == null) {
-        pendings = getPendings();
-    } //else just let the HTML display the existing view that was previously retrieved
-
-};
-document.getElementById("tab3").ontoggle = () => {
-
-    if (pendings == null) {
-        pendings = getPendings();
-    } //else just let the HTML display the existing view that was previously retrieved
-
-};
-document.getElementById("tab4").ontoggle = () => {
-
-    if (pendings == null) {
-        pendings = getPendings();
-    } //else just let the HTML display the existing view that was previously retrieved
-
-};
-document.getElementById("tab5").ontoggle = () => {
 
     if (pendings == null) {
         pendings = getPendings();
@@ -64,40 +36,12 @@ function destroyPendings(){
 
 }
 
-
 //================================================================
 //  Tab Data Getters
 //================================================================
 // These functions are the ones talking to the server to get 
 // data.
 //----------------------------------------------------------------
-/**
- * Gets the UserInfo from the Server
- */
-function getUserInfo() {
-    let xhr = new XMLHttpRequest();
-
-    let message = "";
-
-    xhr.open("POST", baseURL + "/app/ViewAccountInfo", true);
-
-    xhr.onreadystatechange = () => {
-        if (this.readyState === 4) { //i.e. "DONE" i.e. opened, sent, headers received, loading data completed.
-            if (this.status === 200) { //i.e. DONE responding i.e. "OK"
-
-                //If the servlet didn't redirect, then this will not get the tag referenced, 
-                // because it won't be there.
-                //There won't be responseText
-                //It shouldn't even give a status of 200, because the redirect to another page will happen.
-                message = this.responseText;
-                document.getElementById("InvalidCredentials").innerText = message;
-            }
-        }
-    }
-
-    //xhr.send();
-    xhr.send("userID=");
-}
 
 /**
  * Gets Pending Requests for the session userID
@@ -134,9 +78,7 @@ function getPendings() {
 // These functions take the server-returned JSON to Javascript 
 // objects and populate/build the tables/elements.  
 //----------------------------------------------------------------
-function constructPendingsView() {
 
-}
 
 
 
