@@ -7,14 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.project1.beans.*;
 import com.revature.project1.dbDAOimpl.EmployeeDAOImpl;
 import com.revature.project1.dbDAOimpl.ReimbursementDAOImpl;
 
 
 public class ReimbursementUpdateServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
- 
+
+	private static final long serialVersionUID = 4507290951965637571L;
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -24,16 +25,21 @@ public class ReimbursementUpdateServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String email =(String) session.getAttribute("email");
-		String password = (String) session.getAttribute("password");
+		//String password = (String) session.getAttribute("password");
 		Employee m = new EmployeeDAOImpl().getEmployee(email);
 		//Employee m = new Employee();//get session variable for manager id//just hardcoded for now
 		//m.setEmp_id(2);
-		int status = Integer.parseInt(request.getParameter("status"));
-		Reimbursement re = new Reimbursement(Integer.parseInt(request.getParameter("re_id")));
-		
+		int id = Integer.parseInt(request.getParameter("re_id"));
+		int status = Integer.parseInt(request.getParameter("re_status"));
 		ReimbursementDAOImpl rdi = new ReimbursementDAOImpl();
-		re=rdi.updateReimbursement(re, m, status);
+		ObjectMapper mapper = new ObjectMapper();
+		//Reimbursement re= (Reimbursement) mapper.readValue(request.getInputStream(), Reimbursement.class);
+		//int status = re.getRe_status();
+		Reimbursement re = rdi.getReimbursementbyRe(id); 
+		//Reimbursement re = new Reimbursement(Integer.parseInt(request.getParameter("re_id")));
 		
+		re=rdi.updateReimbursement(re, m, status);
+		response.sendRedirect("/project1/app/selectUpdate.html");
 	}
 
 }

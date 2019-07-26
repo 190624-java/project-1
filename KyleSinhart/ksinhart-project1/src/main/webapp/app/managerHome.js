@@ -54,3 +54,12 @@ document.getElementById('goEmpRe').addEventListener('click',()=>{
     localStorage.setItem('emp_id',document.getElementById("emp_id").value);
     window.location.href = "http://localhost:8080/project1/app/empReimbursement.html";
 });
+
+//add button for all reimbursement page 
+document.getElementById('viewAll').onclick = () => {
+    window.location.href="http://localhost:8080/project1/app/viewAll.html";
+};
+
+document.getElementById('selectUpdate').onclick = () => {
+    window.location.href="http://localhost:8080/project1/app/selectUpdate.html";
+};

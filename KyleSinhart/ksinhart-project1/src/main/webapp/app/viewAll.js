@@ -1,15 +1,13 @@
-var baseurl = 'http://localhost:8080/project1/';
 
+var baseurl = 'http://localhost:8080/project1/';
 
 {
     //get var from localstorage
-    let emp_id = localStorage.getItem("emp_id");
-    localStorage.clear();
     console.log("Working?");
     //xhttp.send("fname=Henry&lname=Ford"); and set it in the post with this
     let xhr = new XMLHttpRequest();
 
-    xhr.open('POST', baseurl + 'app/relist');
+    xhr.open('POST', baseurl + 'app/viewall');
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
@@ -25,9 +23,8 @@ var baseurl = 'http://localhost:8080/project1/';
         }
     };
     //xhr.responseText(`emp_id=${emp_id}`);
-    xhr.send(JSON.stringify(emp_id));
+    xhr.send();
 };
-
 function addReimbursementToTable(re) {
     let newRow = document.createElement('tr');
     let idCol = document.createElement('td');
@@ -70,8 +67,7 @@ function addReimbursementToTable(re) {
     document.getElementById('re-table-body').appendChild(newRow);
 };
 
-document.getElementById('goReceipt').onclick = () => {
-    console.log("Clicked");
-    localStorage.setItem('re_id',document.getElementById("re_id").value);
-    window.location.href = "http://localhost:8080/project1/app/viewReceipts.html";
+document.getElementById('goBack').onclick=()=>{
+    console.log('going back');
+    window.location.href = "http://localhost:8080/project1/app/managerHome.html";
 };

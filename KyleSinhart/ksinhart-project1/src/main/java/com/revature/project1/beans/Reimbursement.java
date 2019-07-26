@@ -1,21 +1,25 @@
 package com.revature.project1.beans;
 
-import java.util.Date;
+import java.sql.Date;
+
 import java.util.List;
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 
 public class Reimbursement {
 	private int re_id;
 	private int emp_id;
 	private int re_status;//0 for unprocessed / 1 for approved / 2 for rejected
 	private double amount;
-	private Date date_of;
+	private String date_of;
 	private String description;
 	private int manager_id;
 	private List<Receipt> attRec;
 	private boolean statusOf;
 	
 	
-	public Reimbursement(int emp_id, double amount,Date date, String description) {
+	public Reimbursement(int emp_id, double amount,String date, String description) {
 		//super();
 		this.emp_id = emp_id;
 		this.re_status=0;
@@ -27,11 +31,22 @@ public class Reimbursement {
 	public Reimbursement(int re_id) {
 		this.re_id=re_id;
 	}
+	public Reimbursement(int re_id, int re_status) {
+		this.re_id=re_id;
+		this.re_status=re_status;
+	}
 	public Reimbursement(String re_id) {
+		//System.out.println("String from RE Id field going to viewReceipts" + re_id);
 		this.re_id=Integer.parseInt(re_id);
 	}
+	public Reimbursement(String re_id, String re_status) {
+		//System.out.println("String from RE Id field going to viewReceipts" + re_id);
+		this.re_id=Integer.parseInt(re_id);
+		this.re_status=Integer.parseInt(re_status);
+	}
 	
-	public Reimbursement(int re_id, int emp_id, int re_status, double amount, Date date_of, String description,
+	
+	public Reimbursement(int re_id, int emp_id, int re_status, double amount, String date_of, String description,
 			int manager_id) {
 		super();
 		this.re_id = re_id;
@@ -68,10 +83,10 @@ public class Reimbursement {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public Date getDate_of() {
+	public String getDate_of() {
 		return date_of;
 	}
-	public void setDate_of(Date date_of) {
+	public void setDate_of(String date_of) {
 		this.date_of = date_of;
 	}
 	public String getDescription() {

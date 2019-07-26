@@ -1,6 +1,6 @@
 var baseurl = 'http://localhost:8080/project1/';
 
-document.getElementById("cardRow").onclick=()=>{
+{
     console.log("Working?");
     let xhr = new XMLHttpRequest();
 

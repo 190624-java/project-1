@@ -11,10 +11,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <style>
-    #spacingId > div {
+    #spacingId>div {
       margin: 20px;
     }
-    #footer{
+
+    #footer {
       margin-top: 50px;
     }
   </style>
@@ -63,23 +64,24 @@
       <button id="getEmployees" class="btn btn-success">View Employees</button><br />
     </div>
     <div class="row offset-4 align-center">
-      <button id="goReimbursement" class="btn btn-success">View All Reimbursements</button><br />
+      <button id="viewAll" class="btn btn-success">View All Reimbursements</button><br />
     </div>
+    <div class="row offset-4 align-center">
+        <button id="selectUpdate" class="btn btn-success">Update Reimbursements</button><br />
+      </div>
   </div>
 
-    <div class="row offset-4 text-center">
-      <div class="card">
-        <div class="card-header">
-          View Individual Employee Requests
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Enter Employee ID</h5>
-          <p class="card-text">-><input type="text" id="emp_id" name="emp_id"/></p>
-          <button id="goEmpRe" class="btn btn-primary">Submit</button>
-        </div>
+  <div class="row offset-4 text-center">
+    <div class="card">
+      <div class="card-header">
+        View Individual Employee Requests
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Enter Employee ID</h5>
+        <p class="card-text">-><input type="text" id="emp_id" name="emp_id" /></p>
+        <button id="goEmpRe" class="btn btn-primary">Submit</button>
       </div>
     </div>
-
   </div>
   <div id="footer" class="navbar relative-bottom">
     <button class="btn nav-link" id="doLogout"><b>Logout</b></button>

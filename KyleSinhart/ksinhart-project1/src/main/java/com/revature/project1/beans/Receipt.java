@@ -1,15 +1,29 @@
 package com.revature.project1.beans;
 
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Date;
 
+//import javax.sql.rowset.serial.SerialBlob;
+
 import oracle.sql.BLOB;
+
 
 public class Receipt {
 	private int rec_id;
 	private int re_id;
 	private double amount;
 	private String vendor_name;
-	private BLOB photo;
+	private Blob photo;
+	private byte[] bytes;
+	
+	
+	public byte[] getBytes() {
+		return bytes;
+	}
+	public void setBytes(byte[] bytes) {
+		this.bytes = bytes;
+	}
 	public int getRec_id() {
 		return rec_id;
 	}
@@ -34,10 +48,10 @@ public class Receipt {
 	public void setVendor_name(String vendor_name) {
 		this.vendor_name = vendor_name;
 	}
-	public BLOB getPhoto() {
+	public Blob getPhoto() {
 		return photo;
 	}
-	public void setPhoto(BLOB photo) {
+	public void setPhoto(Blob photo) {
 		this.photo = photo;
 	}
 	public Receipt(int rec_id, int re_id, double amount, String vendor_name) {
@@ -52,6 +66,11 @@ public class Receipt {
 		this.re_id = re_id;
 		this.amount = amount;
 		this.vendor_name = vendor_name;
+	}
+	@Override
+	public String toString() {
+		return "Receipt [rec_id=" + rec_id + ", re_id=" + re_id + ", amount=" + amount + ", vendor_name=" + vendor_name
+				+ "]";
 	}
 	
 }

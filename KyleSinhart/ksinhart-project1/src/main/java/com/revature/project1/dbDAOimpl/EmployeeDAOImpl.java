@@ -33,7 +33,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 			ResultSet rset = prep.getGeneratedKeys();
 			
 			while(rset.next()) {
-				e.setEmp_id(rset.getInt("emp_id"));
+				e.setEmp_id(rset.getInt(1));
 			}
 			return e;
 			

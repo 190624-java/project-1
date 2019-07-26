@@ -12,7 +12,7 @@ CREATE TABLE reimbursement (
     emp_id NUMBER(9) CONSTRAINT fk_emp_id REFERENCES employee(emp_id),
     re_status NUMBER(1) DEFAULT 0,
     amount NUMBER(9) NOT NULL,
-    date_of DATE,
+    date_of VARCHAR2(100),
     re_description VARCHAR2(1000)
 )
 
@@ -24,6 +24,8 @@ CREATE TABLE receipt_records (
     photo BLOB
     /* photo column*/
 )
+
+
 
 CREATE SEQUENCE emp_seq
     START WITH 1

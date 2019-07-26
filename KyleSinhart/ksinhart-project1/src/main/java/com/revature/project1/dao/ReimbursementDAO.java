@@ -8,7 +8,9 @@ public interface ReimbursementDAO {
 	
 	public Reimbursement createReimbursement(Reimbursement re);
 	
-	public Reimbursement getReimbursement(int re);
+	public Reimbursement getReimbursementbyRe(int re);
+	
+	public Reimbursement getReimbursement(int emp);
 	
 	public Reimbursement updateReimbursement(Reimbursement re, Employee m,int status);
 	
@@ -18,5 +20,6 @@ public interface ReimbursementDAO {
 	
 	public void deleteReimbursement(Reimbursement re);
 	
+	public List<Reimbursement> getReimbursement();
 	
 }

@@ -116,4 +116,14 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/app/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAllServlet</display-name>
+    <servlet-name>ViewAllServlet</servlet-name>
+    <servlet-class>com.revature.project1.servlets.ViewAllServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAllServlet</servlet-name>
+    <url-pattern>/app/viewall</url-pattern>
+  </servlet-mapping>
 </web-app>
