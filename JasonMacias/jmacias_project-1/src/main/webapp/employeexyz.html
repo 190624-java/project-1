@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reimbursement Management Employee Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Bitter|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/employee.css">
+</head>
+
+<body>
+
+  <section class="section">
+    <div class="columns">
+      <div class="column is-6 is-offset-1">
+
+        <div class="box has-text-centered has-background-white-ter">
+          <h1 class="is-size-3">Expense Reimbursement - Employee</h1>
+        </div>
+
+
+      </div>
+      <div class="column is-4">
+        <div class="box has-text-centered has-background-white-ter">
+
+          <div class="level">
+
+            <div class="level-left">
+              <div class="level-item">
+                <button id="logout-button" class="button is-success is-medium">Log Out &nbsp<span class="icon">
+                    <i class="fas fa-sign-in-alt"></i>
+                  </span></button>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="level-item">
+                <button id="submit-button" class="button is-success is-medium">Submit &nbsp<span class="icon"><i
+                      class="fas fa-user-plus"></i></span></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <h1 class="is-size-2 has-text-centered">Account dashboard for <span id="welcome-username"></span></h1>
+    <br>
+    <div class="columns">
+      <div class="column is-narrow is-offset-1">
+
+        <nav class="panel has-background-white-ter">
+          <p class="panel-heading bitter">
+            Options
+          </p>
+          <a id="submit-request" class="panel-block">
+            <span class="panel-icon">
+              <i class="fas fa-folder-plus"></i>
+            </span>
+            submit a request
+          </a>
+          <a id="upload-receipt" class="panel-block">
+            <span class="panel-icon">
+              <i class="fas fa-file-upload"></i>
+            </span>
+            upload a receipt
+          </a>
+          <a id="view-pending" class="panel-block">
+            <span class="panel-icon">
+              <i class="fas fa-folder-open"></i>
+            </span>
+            view pending requests
+          </a>
+          <a id="view-resolved" class="panel-block">
+            <span class="panel-icon">
+              <i class="fas fa-folder-open"></i>
+            </span>
+            view resolved requests
+          </a>
+          <a id="view-info" class="panel-block">
+            <span class="panel-icon">
+              <i class="fas fa-eye"></i>
+            </span>
+            view your information
+          </a>
+          <a id="update-info" class="panel-block">
+            <span class="panel-icon">
+              <i class="fas fa-edit"></i>
+            </span>
+            update your information
+          </a>
+        </nav>
+
+      </div>
+      <div class="column">
+        <div class="box shadowed is-size-5 has-background-white-ter">
+          <div id="main-box">
+
+            <br>
+            <span class="bitter hideable">Please select an option</span><br>
+            <div class="hideable" style="display: none" id="hidden-submit-request" >
+              <h2>Enter your request information</h2>
+              <form>
+                <div class="field">
+                  <div class="control">
+                    <input class="label" placeholder="Value" id="value-input" type="number" />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input class="label" placeholder="Description" id="description-input" type="text" />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <input class="label" placeholder="Date" id="date-input" type="date" />
+                  </div>
+                </div>
+                <button id="request-submit" class="button is-success">Submit</button>
+                
+              </form>
+            </div>
+            <div id="request-display" style="display: none" class="hideable">
+              <h2>Your requests</h2>
+              <div id="request-display-target">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="box has-text-centered has-background-success has-text-light">
+          <i class="far fa-paper-plane fa-10x"></i>
+        </div>
+      </div>
+      <div class="column is-1"></div>
+    </div>
+
+  </section>
+
+  <div id="modal" class="modal">
+    <div class="modal-background closer"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title bitter" id="modal-title">
+          <!-- content of model title to be inserted here from js -->
+        </p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <div class="modal-card-body">
+        <form>
+          <div id="modal-content">
+            <!-- Content of modal inserted from JS here -->
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../assets/employee.js"></script>
+</body>
+
+</html>
