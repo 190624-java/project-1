@@ -128,7 +128,7 @@ public class ReimbursementSystemServlet extends HttpServlet {
 			break;
 			
 		case "/Project1/app/servlet/logout":
-			request.getSession(false).invalidate();
+			request.getSession().invalidate();
 			response.sendRedirect("/Project1/");
 			break;
 			
